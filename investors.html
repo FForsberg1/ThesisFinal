@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}All the Investors
+    <a class="action" href="{{ url_for('homePipelineGraph.home') }}">Return to Home</a>
+    <a class="action" href="{{ url_for('listData.allInvestment') }}">Investment</a>
+    <a class="action" href="{{ url_for('listData.allRelationship') }}">Relationship</a>
+    <a class="action" href="{{ url_for('listData.allKPI') }}">KPI</a>
+    <a class="action" href="{{ url_for('searchData.OneInvestor') }}">Search for specific Investor</a>
+    <a class="action" href="{{ url_for('addData.addInvestor') }}">Add a Investor</a>
+  {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  {% for post in posts %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>Name of Investor: {{ post['name'] }}</h1>
+          <div class="about">UUID: {{ post['uuid'] }} </div>
+          <div class="about">Contact Email: {{ post['email'] }} </div>
+          <div class="about">Pipeline Location: {{ post['pipelineLocation'] }} </div>
+          <div class="about">Current Total Cash: {{ post['currentTotalCash'] }} </div>
+          <div class="about">Total Cash Invested: {{ post['totalCashInvested'] }} </div>
+          <div class="about">Investor Thesis: {{ post['thesis'] }} </div>
+        </div>
+      </header>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

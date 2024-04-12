@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Add a new Investment to the database
+    <a class="action" href="{{ url_for('listData.allInvestment') }}"> Return to Investment</a>
+  {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <article class="post">
+      <header>
+        <div>
+            <form method="post">
+                <label for="title">Please fill out all cells</label>
+
+                <label for = "title">Company Name:</label>
+                <input name="companyName" id="companyName" value="{{ request.form['companyName'] }}" required><br>
+            
+                <label for = "title">Company Email:</label>
+                <input name="companyEmail" id="companyEmail" value="{{ request.form['companyEmail'] }}" required><br>
+            
+                <label for = "title">Website:</label>
+                <input name="website" id="website" value="{{ request.form['website'] }}" required><br>
+            
+                <label for = "title">Contact Name:</label>
+                <input name="contactName" id="contactName" value="{{ request.form['contactName'] }}" required><br>
+            
+                <label for = "title">Bio:</label>
+                <input name="bio" id="bio" value="{{ request.form['bio'] }}" required><br>
+            
+                <label for = "title">Date of joining the network:</label>
+                <input name="dateJoinNetwork" id="dateJoinNetwork" value="{{ request.form['dateJoinNetwork'] }}" required><br>
+
+                <label for = "title">Percent of Company Owened</label>
+                <input name="percentCompanyOwned" id="percentCompanyOwned" value="{{ request.form['percentCompanyOwned'] }}" required><br>
+
+                <label for = "title">UUID:</label>
+                <input name="uuid" id="uuid" value="{{ request.form['uuid'] }}" required><br>
+
+                <label for = "title">Pipeline Location</label>
+                <input name="pipelineLocation" id="pipelineLocation" value="{{ request.form['pipelineLocation'] }}" required><br>
+
+                <input type="submit" value="Add">
+        </div>
+      </header>
+    </article>
+{% endblock %}

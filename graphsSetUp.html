@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Welcome to Async!
+    <a class="action" href="{{ url_for('homePipelineGraph.home') }}">Return to Home</a>
+
+    <form method="post">
+        <label for="title">Please enter the data you would to graph</label>
+
+        <label for = "title">Data Type:</label>
+        <input name="dataType" id="dataType" value="{{ request.form['dataType'] }}" required><br>
+            
+        <label for = "title">Investment UUID:</label>
+        <input name="investmentUUID" id="investmentUUID" value="{{ request.form['investmentUUID'] }}" required><br>
+
+        <input type="submit" value="Graph">           
+
+  {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  {% for post in posts %}
+    <article class="post">
+      <header>
+        <div>
+          
+        </div>
+      </header>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Search for a specifc Investment Relationship
+    <a class="action" href="{{ url_for('listData.allRelationship') }}"> Return to Relationship</a>
+  {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <article class="post">
+      <header>
+        <div>
+            <form method="post">
+                <label for="name">Please enter the Investor UUID of the Investment Relationship you would like to search for</label>
+                <input name="name" id="name" value="{{ request.form['name'] }}" required>
+                <input type="submit" value="Search">
+        </div>
+      </header>
+    </article>
+{% endblock %}

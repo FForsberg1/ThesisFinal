@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Add a new Investment Relationship to the database
+    <a class="action" href="{{ url_for('listData.allRelationship') }}">Relationship</a>
+  {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <article class="post">
+      <header>
+        <div>
+            <form method="post">
+                <label for="title">Please fill out all cells</label>
+
+                <label for = "title">Investment Amount:</label>
+                <input name="investmentAmount" id="investmentAmount" value="{{ request.form['investmentAmount'] }}" required><br>
+            
+                <label for = "title">Investment Date:</label>
+                <input name="investmentDate" id="investmentDate" value="{{ request.form['investmentDate'] }}" required><br>
+            
+                <label for = "title">Percent of Company:</label>
+                <input name="percentOfCompany" id="percentOfCompany" value="{{ request.form['percentOfCompany'] }}" required><br>
+            
+                <label for = "title">Investor or Fund UUID:</label>
+                <input name="investorOrFundUUID" id="investorOrFundUUID" value="{{ request.form['investorOrFundUUID'] }}" required><br>
+            
+                <label for = "title">Investment UUID:</label>
+                <input name="investmentUUID" id="investmentUUID" value="{{ request.form['investmentUUID'] }}" required><br>
+            
+                <input type="submit" value="Add">
+        </div>
+      </header>
+    </article>
+{% endblock %}

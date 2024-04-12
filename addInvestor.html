@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Add a new Investor to the database
+    <a class="action" href="{{ url_for('listData.allInvestor') }}">Return to Investors</a>
+  {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <article class="post">
+      <header>
+        <div>
+            <form method="post">
+                <label for="title">Please fill out all cells!</label>
+
+                <label for = "title">Current total Cash:</label>
+                <input name="currentTotalCash" id="currentTotalCash" value="{{ request.form['currentTotalCash'] }}" required><br>
+            
+                <label for = "title">Total Cash Invested:</label>
+                <input name="totalCashInvested" id="totalCashInvested" value="{{ request.form['currentTotalCash'] }}" required><br>
+            
+                <label for = "title">Name:</label>
+                <input name="name" id="name" value="{{ request.form['name'] }}" required><br>
+            
+                <label for = "title">Email:</label>
+                <input input type="text" name="email" id="email" value="{{ request.form['email'] }}" required><br>
+            
+                <label for = "title">Thesis:</label>
+                <input name="thesis" id="thesis" value="{{ request.form['thesis'] }}" required><br>
+            
+                <label for = "title">UUID</label>
+                <input name="uuid" id="uuid" value="{{ request.form['uuid'] }}" required><br>
+
+                <label for = "title">Pipeline Location</label>
+                <input name="pipelineLocation" id="pipelineLocation" value="{{ request.form['pipelineLocation'] }}" required><br>
+
+                <input type="submit" value="Add">
+        </div>
+      </header>
+    </article>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Add a new KPI to the database
+    <a class="action" href="{{ url_for('listData.allKPI') }}">Return to KPI</a>
+  {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <article class="post">
+      <header>
+        <div>
+            <form method="post">
+                <label for="title">Please fill out all cells</label>
+
+                <label for = "title">Headcount:</label>
+                <input name="headcount" id="headcount" value="{{ request.form['headcount'] }}" required><br>
+            
+                <label for = "title">EPITDA:</label>
+                <input name="epitda" id="epitda" value="{{ request.form['epitda'] }}" required><br>
+            
+                <label for = "title">Gross Profit:</label>
+                <input name="grossProfit" id="grossProfit" value="{{ request.form['grossProfit'] }}" required><br>
+            
+                <label for = "title">Number of locations:</label>
+                <input name="numLocations" id="numLocations" value="{{ request.form['numLocations'] }}" required><br>
+            
+                <label for = "title">ROI:</label>
+                <input name="roi" id="roi" value="{{ request.form['roi'] }}" required><br>
+            
+                <label for = "title">Total Value of Company:</label>
+                <input name="totalValueOfCompany" id="totalValueOfCompany" value="{{ request.form['totalValueOfCompany'] }}" required><br>
+
+                <label for = "title">Quarter:</label>
+                <input name="quarter" id="quarter" value="{{ request.form['quarter'] }}" required><br>
+
+                <label for = "title">Year:</label>
+                <input name="year" id="year" value="{{ request.form['year'] }}" required><br>
+            
+                <label for = "title">KPI UUID:</label>
+                <input name="kpiUUID" id="kpiUUID" value="{{ request.form['kpiUUID'] }}" required><br>
+
+                <label for = "title">Investment UUID</label>
+                <input name="investmentUUID" id="investmentUUID" value="{{ request.form['investmentUUID'] }}" required><br>
+
+                <input type="submit" value="Add">
+        </div>
+      </header>
+    </article>
+{% endblock %}

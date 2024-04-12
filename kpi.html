@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}KPI
+        <a class="action" href="{{ url_for('homePipelineGraph.home') }}">Home</a>
+        <a class="action" href="{{ url_for('listData.allInvestor') }}">Investors</a>
+        <a class="action" href="{{ url_for('listData.allInvestment') }}">Investment</a>
+        <a class="action" href="{{ url_for('listData.allRelationship') }}">Relationship</a>
+        <a class="action" href="{{ url_for('searchData.OneKPI') }}">Search for specific KPI</a>
+        <a class="action" href="{{ url_for('addData.addKPI')}}">Add a new KPI</a>
+    {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  {% for post in posts %}
+    <article class="post">
+      <header>
+        <div>
+          <h1 class="body">KPI UUID: {{ post['kpiUUID'] }}</h1>
+          <div class="about">Headcount: {{ post['headcount'] }} </div>
+          <div class="about">EPITDA: {{ post['epitda'] }} </div>
+          <div class="about">Gross Profit: {{ post['grossProfit'] }} </div>
+          <div class="about">Number of Locations: {{ post['numLocations'] }} </div>
+          <div class="about">Return on investment: {{ post['roi'] }} </div>
+          <div class="about">Total Value of Company: {{ post['totalValueOfCompany'] }}</div>
+          <h1 class="bio">Investment UUID: {{ post['investmentUUID'] }} </h1>
+          <div class="about">Quarter: {{ post['quarter'] }} </div>
+          <div class="about">Year: {{ post['year'] }} </div>
+        </div>
+      </header>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

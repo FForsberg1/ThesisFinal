@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}All the current Investment Relationship
+        <a class="action" href="{{ url_for('homePipelineGraph.home') }}">Home</a>
+        <a class="action" href="{{ url_for('listData.allInvestor') }}">Investors</a>
+        <a class="action" href="{{ url_for('listData.allInvestment') }}">Investment</a>
+        <a class="action" href="{{ url_for('listData.allKPI') }}">KPI</a>
+        <a class="action" href="{{ url_for('searchData.OneRelationship') }}">Search for specific Relationship</a>
+        <a class="action" href="{{ url_for('addData.addRelationship')}}">Add a new Relationship</a>
+  {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  {% for post in posts %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>Invest Amount: {{ post['investmentAmount'] }}</h1>
+          <div class="about">Investment Date: {{ post['investmentDate'] }} </div>
+          <div class="about">Percent of Company: {{ post['percentOfCompany'] }} </div>
+          <div class="about">Investor UUID: {{ post['investorOrFundUUID'] }} </div>
+          <div class="about">Investment UUID: {{ post['investmentUUID'] }} </div>
+        </div>
+      </header>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

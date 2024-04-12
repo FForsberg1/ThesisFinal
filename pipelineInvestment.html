@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} Investor Pipeline
+    <a class="action" href="{{ url_for('homePipelineGraph.home') }}">Return to Home</a>
+  {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  {% for post in posts %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>Company Name: {{ post['companyName'] }}</h1>
+          <div class="about">UUID: {{ post['uuid'] }} </div>
+          <div class="about">Contact Email: {{ post['companyEmail'] }} </div>
+          <div class="about">Contact Name: {{ post['contactName'] }} </div>
+          <div class="about">Website URL: {{ post['website'] }} </div>
+          <div class="about">Date when the Fund invested: {{ post['dateJoinNetwork'] }} </div>
+          <div class="about">Percent Company owned by Fund: {{ post['percentCompanyOwned'] }} </div>
+          <div class="about">Pipeline Location: {{ post['pipelineLocation'] }} </div>
+          <div class="about">Bio of the Company: {{ post['bio'] }}</div>
+        </div>
+      </header>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
